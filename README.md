@@ -1,3 +1,1 @@
-<center>
-  # First Iteration of my portfolio website : Version 1.0.0
-</center>
+<h1 align="center">First iteration of my portfolio webiste : Version 1.0.0</h1>
