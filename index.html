@@ -18,15 +18,30 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const remoteLinks = document.querySelectorAll('a[href^="//"], a[href^="http"]');
-
             [...remoteLinks].forEach((anchor) => {
                 anchor.target = "_blank";
+            });
+    
+            const toggleButton = document.getElementById('theme-toggle');
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', currentTheme);
+    
+            if (currentTheme === 'dark') {
+                toggleButton.classList.add('dark-mode');
+            }
+    
+            toggleButton.addEventListener('click', () => {
+                const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', theme);
+                localStorage.setItem('theme', theme);
+                toggleButton.classList.toggle('dark-mode');
             });
         });
     </script>
 </head>
 
 <body>
+    <button id="theme-toggle" aria-label="Toggle Dark Mode"></button>
     <main class="wrapper">
         <article class="intro">
             <div class="layout-spacer"></div>
@@ -34,8 +49,8 @@
                 <nav class="intro-header__nav">
                     <ul>
                         
-                        <li><a href="">Projects</a></li>
-                        <li><a href="">Say hi!&nbsp;</a></li>
+                        <li><a href=""><span>PROJECTS</span></a></li>
+                        <li><a href=""><span>SAY HI!&nbsp;</span></a></li>
                     </ul>
                 </nav>
             </header>

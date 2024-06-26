@@ -186,13 +186,24 @@ template {
     --bg-h: 0;
     --bg-s: 100%;
     --bg-l: 98%;
-    --color-bg: #F0EAE5;
+    --color-bg: #EDDBC2;
     --color-bg-fade: hsla(var(--bg-h), var(--bg-s), var(--bg-l), 0.9);
     --color-text: #3e3e3e;
     --color-text-fade: rgba(62, 62, 62, 0.53333);
-    --color-link: #e00202
+    --color-link: #680A07;
+    --background-image: url('../images/Maskdark.png');
+    --toggle-bg: #1c1c1c;
 }
 
+[data-theme="dark"] {
+    --color-bg: #1C1C1C;
+    --color-text: #EDDBC2;
+    --color-link: #8B111E;
+    --background-image: url('../images/Masklight.png');
+    --toggle-bg: #EDDBC2;
+    /* --toggle-bg-light: #3e3e3e;
+    --toggle-bg: #EDDBC2; */
+}
 @media (min-width:var(--screen-mid)) {
     :root {
         --page-margin: var(--page-margin-mid);
@@ -221,6 +232,28 @@ html {
     margin: 0 auto
 }
 
+#theme-toggle {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: 30px;
+    height: 30px;
+    border: 2px solid var(--color-text);
+    border-radius: 50%;
+    background: transparent;
+    border-color: var(--toggle-bg);
+    cursor: pointer;
+    transition: background 0.3s, border-color 0.3s;
+}
+
+#theme-toggle.dark-mode {
+    border-color: var(--toggle-bg);
+    /* background: var(--toggle-bg); */
+}
+
+#theme-toggle:focus {
+    outline: none;
+}
 .intro-header {
     line-height: 3rem;
     line-height: calc(var(--ru)*2rem);
@@ -253,17 +286,40 @@ html {
     font-weight: 600
 }
 
+.intro-header a span {
+    position: relative;
+    display: inline-block;
+    padding: 0;
+    transition: color 0.3s;
+}
+
+.intro-header a span::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 50%;
+    height: 3px;
+    background-color: var(--color-link);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+}
+
+.intro-header a:hover span::before {
+    transform: scaleX(1);
+}
+
+
 @media (hover:hover) {
     .intro-header a:hover {
         text-decoration: underline
     }
 }
 
-.intro-header a:active,
+/* .intro-header a:active,
 .intro-header a:hover {
-    color: #e00202;
-    color: var(--color-link)
-}
+} */
 
 @media (min-width:800px) {
     .intro-header {
@@ -355,7 +411,7 @@ html {
         right: var(--page-margin);
         bottom: calc(3rem - 5%);
         bottom: calc(var(--page-margin) - 5%);
-        background: url(../images/WhatsApp_Image_2024-06-25_at_4.13.51_PM__1_-removebg-preview.png);
+        background: var(--background-image);
         background-size: contain;
         background-repeat: no-repeat;
         background-position: 100% 100%
