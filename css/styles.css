@@ -190,7 +190,7 @@ template {
     --color-bg-fade: hsla(var(--bg-h), var(--bg-s), var(--bg-l), 0.9);
     --color-text: #3e3e3e;
     --color-text-fade: rgba(62, 62, 62, 0.53333);
-    --color-link: #680A07;
+    --color-link: #cc1100;
     --background-image: url('../images/Maskdark.png');
     --toggle-bg: #1c1c1c;
 }
