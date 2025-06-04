@@ -191,7 +191,7 @@ template {
     --color-text: #3e3e3e;
     --color-text-fade: rgba(62, 62, 62, 0.53333);
     --color-link: #cc1100;
-    --background-image: url('../images/majestic-moon-detailed-grayscale-celestial-portrait.png');
+    --background-image: url('../images/mask_dark_upscaled.jpeg');
     --toggle-bg: #1c1c1c;
 }
 
@@ -199,7 +199,7 @@ template {
     --color-bg: #1C1C1C;
     --color-text: #EDDBC2;
     --color-link: #8B111E;
-    --background-image: url('../images/majestic-moon-detailed-grayscale-celestial-portrait.png');
+    --background-image: url('../images/masklight_upscaled.jpeg');
     --toggle-bg: #EDDBC2;
     /* --toggle-bg-light: #3e3e3e;
     --toggle-bg: #EDDBC2; */
